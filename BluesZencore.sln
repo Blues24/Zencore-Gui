@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluesZencore.Core", "BluesZencore.Core\BluesZencore.Core.csproj", "{BC107A86-86AC-4C7F-955F-80FB8166EE88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluesZencore.Gui", "BluesZencore.Gui\BluesZencore.Gui.csproj", "{3CAB4B24-D10B-42D1-8FD6-A420C8AA1581}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC107A86-86AC-4C7F-955F-80FB8166EE88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC107A86-86AC-4C7F-955F-80FB8166EE88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC107A86-86AC-4C7F-955F-80FB8166EE88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC107A86-86AC-4C7F-955F-80FB8166EE88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAB4B24-D10B-42D1-8FD6-A420C8AA1581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAB4B24-D10B-42D1-8FD6-A420C8AA1581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAB4B24-D10B-42D1-8FD6-A420C8AA1581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAB4B24-D10B-42D1-8FD6-A420C8AA1581}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
