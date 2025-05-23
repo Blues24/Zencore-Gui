@@ -63,8 +63,13 @@ namespace BluesZencore.Core
             Console.WriteLine($"> {toolPath} {args}");
 
             using var proc = Process.Start(psi);
-            proc.WaitForExit();
+            if (proc == null)
+            {
+                Console.Error.WriteLine($"Gagal menjalankan Proses: {psi.FileName}");
+            }
 
+            proc.WaitForExit();
+            
             string output = proc.StandardOutput.ReadToEnd();
             string error = proc.StandardError.ReadToEnd();
 
