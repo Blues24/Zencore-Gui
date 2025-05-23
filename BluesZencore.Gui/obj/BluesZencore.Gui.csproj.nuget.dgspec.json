@@ -4,14 +4,14 @@
     "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/BluesZencore.Gui.csproj": {}
   },
   "projects": {
-    "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/BluesZencore.Gui.csproj": {
+    "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/BluesZencore.Gui.csproj",
-        "projectName": "BluesZencore.Gui",
-        "projectPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/BluesZencore.Gui.csproj",
+        "projectUniqueName": "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj",
+        "projectName": "BluesZencore.Core",
+        "projectPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj",
         "packagesPath": "/home/blues/.nuget/packages/",
-        "outputPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/obj/",
+        "outputPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/blues/.nuget/NuGet/NuGet.Config"
@@ -20,7 +20,6 @@
           "net9.0"
         ],
         "sources": {
-          "/usr/lib64/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +38,76 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "SharpCompress": {
+              "target": "Package",
+              "version": "[0.39.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/BluesZencore.Gui.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/BluesZencore.Gui.csproj",
+        "projectName": "BluesZencore.Gui",
+        "projectPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/BluesZencore.Gui.csproj",
+        "packagesPath": "/home/blues/.nuget/packages/",
+        "outputPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Gui/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/blues/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj": {
+                "projectPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -82,7 +150,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
