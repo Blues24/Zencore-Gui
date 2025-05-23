@@ -432,6 +432,23 @@
           "lib/net5.0/MicroCom.Runtime.dll": {}
         }
       },
+      "SharpCompress/0.39.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.6.0",
+          "ZstdSharp.Port": "0.8.4"
+        },
+        "compile": {
+          "lib/net8.0/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "SkiaSharp/2.88.9": {
         "type": "package",
         "dependencies": {
@@ -530,6 +547,15 @@
           }
         }
       },
+      "System.Buffers/4.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
       "System.IO.Pipelines/8.0.0": {
         "type": "package",
         "compile": {
@@ -556,6 +582,28 @@
         },
         "runtime": {
           "lib/net8.0/Tmds.DBus.Protocol.dll": {}
+        }
+      },
+      "ZstdSharp.Port/0.8.4": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/ZstdSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net9.0/ZstdSharp.dll": {}
+        }
+      },
+      "BluesZencore.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "SharpCompress": "0.39.0"
+        },
+        "compile": {
+          "bin/placeholder/BluesZencore.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BluesZencore.Core.dll": {}
         }
       }
     }
@@ -1174,6 +1222,28 @@
         "microcom.runtime.nuspec"
       ]
     },
+    "SharpCompress/0.39.0": {
+      "sha512": "0esqIUDlg68Z7+Weuge4QzEvNtawUO4obTJFL7xuf4DBHMxVRr+wbNgiX9arMrj3kGXQSvLe0zbZG3oxpkwJOA==",
+      "type": "package",
+      "path": "sharpcompress/0.39.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net48/SharpCompress.dll",
+        "lib/net48/SharpCompress.pdb",
+        "lib/net481/SharpCompress.dll",
+        "lib/net481/SharpCompress.pdb",
+        "lib/net6.0/SharpCompress.dll",
+        "lib/net6.0/SharpCompress.pdb",
+        "lib/net8.0/SharpCompress.dll",
+        "lib/net8.0/SharpCompress.pdb",
+        "lib/netstandard2.0/SharpCompress.dll",
+        "lib/netstandard2.0/SharpCompress.pdb",
+        "sharpcompress.0.39.0.nupkg.sha512",
+        "sharpcompress.nuspec"
+      ]
+    },
     "SkiaSharp/2.88.9": {
       "sha512": "3MD5VHjXXieSHCleRLuaTXmL2pD0mB7CcOB1x2kA1I4bhptf4e3R27iM93264ZYuAq6mkUyX5XbcxnZvMJYc1Q==",
       "type": "package",
@@ -1352,6 +1422,26 @@
         "skiasharp.nativeassets.win32.nuspec"
       ]
     },
+    "System.Buffers/4.6.0": {
+      "sha512": "lN6tZi7Q46zFzAbRYXTIvfXcyvQQgxnY7Xm6C6xQ9784dEL1amjM6S6Iw4ZpsvesAKnRVsM4scrDQaDqSClkjA==",
+      "type": "package",
+      "path": "system.buffers/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "buildTransitive/net461/System.Buffers.targets",
+        "buildTransitive/net462/_._",
+        "lib/net462/System.Buffers.dll",
+        "lib/net462/System.Buffers.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "system.buffers.4.6.0.nupkg.sha512",
+        "system.buffers.nuspec"
+      ]
+    },
     "System.IO.Pipelines/8.0.0": {
       "sha512": "FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "type": "package",
@@ -1395,6 +1485,31 @@
         "tmds.dbus.protocol.0.21.2.nupkg.sha512",
         "tmds.dbus.protocol.nuspec"
       ]
+    },
+    "ZstdSharp.Port/0.8.4": {
+      "sha512": "eieSXq3kakCUXbgdxkKaRqWS6hF0KBJcqok9LlDCs60GOyrynLvPOcQ0pRw7shdPF7lh/VepJ9cP9n9HHc759g==",
+      "type": "package",
+      "path": "zstdsharp.port/0.8.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/ZstdSharp.dll",
+        "lib/net5.0/ZstdSharp.dll",
+        "lib/net6.0/ZstdSharp.dll",
+        "lib/net7.0/ZstdSharp.dll",
+        "lib/net8.0/ZstdSharp.dll",
+        "lib/net9.0/ZstdSharp.dll",
+        "lib/netcoreapp3.1/ZstdSharp.dll",
+        "lib/netstandard2.0/ZstdSharp.dll",
+        "lib/netstandard2.1/ZstdSharp.dll",
+        "zstdsharp.port.0.8.4.nupkg.sha512",
+        "zstdsharp.port.nuspec"
+      ]
+    },
+    "BluesZencore.Core/1.0.0": {
+      "type": "project",
+      "path": "../BluesZencore.Core/BluesZencore.Core.csproj",
+      "msbuildProject": "../BluesZencore.Core/BluesZencore.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1403,7 +1518,8 @@
       "Avalonia.Desktop >= 11.3.0",
       "Avalonia.Diagnostics >= 11.3.0",
       "Avalonia.Fonts.Inter >= 11.3.0",
-      "Avalonia.Themes.Fluent >= 11.3.0"
+      "Avalonia.Themes.Fluent >= 11.3.0",
+      "BluesZencore.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1425,13 +1541,16 @@
         "net9.0"
       ],
       "sources": {
-        "/usr/lib64/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj": {
+              "projectPath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -1444,7 +1563,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -1487,7 +1606,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
