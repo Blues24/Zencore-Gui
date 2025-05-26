@@ -12,13 +12,13 @@ namespace BluesZencore.Core
         public bool UseCompression { get; set; } = true;
         public bool EnableEncryption { get; set; } = false;
 
+        public bool UsePassword { get; set; } = false;
+        
         // Untuk advanced mode
-
-        public string? volumeSize  { get; set; } = null;
+        public string? VolumeSize { get; set; } = null;
         public List<string>? excludePattern { get; set; } = new();
         public string? archiveNameTemplate { get; set; } = "ZencoreOutput_{date}_{time}";
-        public int compressionLevel { get; set; } = 5;
-
+        public int CompressionLevel { get; set; } = 5;
 
         public bool GenerateChecksum { get; set; } = false;
         public Dictionary<string, string>? CustomMetaData { get; set; } = null;
