@@ -80,6 +80,18 @@ namespace BluesZencore.Core
         }
         public static void CreateArchiveWithCli(ArchiveOptions options)
         {
+            string volumePart = "";
+            if (!string.IsNullOrWhiteSpace(options.volumeSize))
+            {
+                volumePart = $"-v{options.volumeSize}";
+            }
+
+            string excludeArgs = "";
+            if (options.excludePattern != null && options.excludePattern.Any())
+            {
+                excludeArgs = string.Join(".", options.excludePattern.Select(p => $"-x!{p}"));
+            }
+            
             switch (options.Format.ToLower())
             {
                 case "zip":
