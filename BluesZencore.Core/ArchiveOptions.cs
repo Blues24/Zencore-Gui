@@ -1,3 +1,4 @@
+
 using System.Dynamic;
 
 namespace BluesZencore.Core
@@ -12,10 +13,13 @@ namespace BluesZencore.Core
         public bool EnableEncryption { get; set; } = false;
 
         // Untuk advanced mode
+
         public string? volumeSize  { get; set; } = null;
         public List<string>? excludePattern { get; set; } = new();
         public string? archiveNameTemplate { get; set; } = "ZencoreOutput_{date}_{time}";
         public int compressionLevel { get; set; } = 5;
+
+
         public bool GenerateChecksum { get; set; } = false;
         public Dictionary<string, string>? CustomMetaData { get; set; } = null;
         public bool AdvancedMode =>

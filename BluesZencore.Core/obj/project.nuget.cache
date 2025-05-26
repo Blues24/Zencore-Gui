@@ -1,6 +1,10 @@
 {
   "version": 2,
+
   "dgSpecHash": "XI6sG5Ptpdg=",
+=======
+  "dgSpecHash": "581ah8Z22NY=",
+
   "success": true,
   "projectFilePath": "/home/blues/Projects/Zencore-GUI/BluesZencore.Core/BluesZencore.Core.csproj",
   "expectedPackageFiles": [
