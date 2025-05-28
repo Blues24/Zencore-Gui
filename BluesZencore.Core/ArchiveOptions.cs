@@ -17,7 +17,11 @@ namespace BluesZencore.Core
         public List<string>? excludePattern { get; set; } = new();
         public string? archiveNameTemplate { get; set; } = "ZencoreOutput_{date}_{time}";
         public int CompressionLevel { get; set; } = 5;
-        public bool GenerateChecksum { get; set; } = false;
+        public bool GenerateChecksum { get; set; }
+        
+        public string? ChecksumAlgorithm { get; set; } = "SHA256";
+        
+        public Dictionary<string, string>? Metadata { get; set; }
         public Dictionary<string, string>? CustomMetaData { get; set; } = null;
         public bool AdvancedMode =>
             EnableEncryption || GenerateChecksum || (CustomMetaData?.Any() ?? false);
