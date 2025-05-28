@@ -1,8 +1,11 @@
+
 using System.Security.AccessControl;
+
 using System.Text.RegularExpressions;
 using BluesZencore.Core;
 public static class ArchiveValidator
 {
+
     private static readonly HashSet<string> supportedFormats = new()
     {
         "zip", "tar.gz", "tar.zst", "7z", "rar"
@@ -95,3 +98,4 @@ public static class ArchiveValidator
         return newPath;
     } 
 }
+
