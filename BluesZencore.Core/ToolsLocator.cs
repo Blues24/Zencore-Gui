@@ -1,50 +1,98 @@
+using System.Diagnostics;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+
 
 namespace BluesZencore.Core
 {
     public static class ToolLocator
     {
-        private static readonly string ToolDir = Path.Combine(AppContext.BaseDirectory, "assets", "tools");
 
-        public static string GetToolPath(string toolName)
+        public static IArchiveExtractor? GetFallbackExtractor(string format)
         {
-            string osToolName = GetOsSpecificToolName(toolName);
-
-            // Cari di global PATH 
-            if (IsToolInPath(osToolName, out var globalPAth))
-                return globalPAth;
-
-            // cari di folder bundle internal
-            string localTool = Path.Combine(ToolDir, osToolName);
-            if (File.Exists(localTool))
-                return localTool;
-
-            throw new FileNotFoundException($"[X] Tool '{toolName}' tidak ditemukan di sistem atau di bundle.");
-        }
-
-        private static string GetOsSpecificToolName(string baseName)
-        {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                return baseName + ".exe";
-            return baseName;
-        }
-
-        private static bool IsToolInPath(string toolName, out string foundPath)
-        {
-            var paths = (Environment.GetEnvironmentVariable("PATH") ?? "").Split(Path.PathSeparator);
-            foreach (var path in paths)
+            
+            if (ExtractorManager.Extractors.TryGetValue($"{format}-fallback", out var extractor))
             {
-                var fullPath = Path.Combine(path.Trim(), toolName);
-                if (File.Exists(fullPath))
+                return extractor;
+            }
+            
+            return null;
+        }
+
+        private static readonly Dictionary<string, ToolInfo> tools = new();
+
+        private static readonly string bundledToolDir = Path.Combine(AppContext.BaseDirectory, "assets", "tools");
+
+        private static readonly string[] knownTools = new[]
+        {
+            "7z", "tar", "unrar", "unzip", "zstd", "xz"
+        };
+
+        public static void Scan()
+        {
+            tools.Clear();
+            foreach (var toolName in knownTools)
+            {
+                string? path = FindInSystem(toolName);
+                if (path != null)
                 {
-                    foundPath = fullPath;
-                    return true;
+                    tools[toolName] = new ToolInfo { Name = toolName, Path = path, IsBundled = false };
+                    continue;
+                }
+
+                string bundledPath = Path.Combine(bundledToolDir, toolName + GetExeExt());
+                if (File.Exists(bundledPath))
+                {
+                    tools[toolName] = new ToolInfo { Name = toolName, Path = bundledPath, IsBundled = true };
                 }
             }
-            foundPath = "";
-            return false;
         }
+
+        public static ToolInfo? GetTool(string name)
+        {
+            tools.TryGetValue(name, out var tool);
+            return tool;
+        }
+        public static string? GetExtractorForFormat(string format)
+        {
+            format = format.ToLowerInvariant();
+
+            return format switch
+            {
+                "zip" => GetTool("7z")?.Path ?? GetTool("unzip")?.Path,
+                "rar" => GetTool("7z")?.Path ?? GetTool("unrar")?.Path,
+                "7z" => GetTool("7z")?.Path,
+                "tar" or "tar.gz" or "tgz" or "tar.zst" => GetTool("7z")?.Path ?? GetTool("tar")?.Path,
+                _ => null
+            };
+        }
+
+        private static string? FindInSystem(string toolName)
+        {
+            try
+            {
+                string cmd = OperatingSystem.IsWindows() ? "where" : "which";
+                using var proc = Process.Start(new ProcessStartInfo
+                {
+                    FileName = cmd,
+                    Arguments = toolName,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                });
+
+                string output = proc?.StandardOutput.ReadLine() ?? "";
+                proc?.WaitForExit();
+
+                return string.IsNullOrWhiteSpace(output) ? null : output.Trim();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static string GetExeExt() => OperatingSystem.IsWindows() ? ".exe" : "";
     }
-}
+

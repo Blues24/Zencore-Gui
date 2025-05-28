@@ -1,4 +1,3 @@
-
 using System.Dynamic;
 
 namespace BluesZencore.Core
@@ -11,7 +10,6 @@ namespace BluesZencore.Core
         public string? Password { get; set; } = null;
         public bool UseCompression { get; set; } = true;
         public bool EnableEncryption { get; set; } = false;
-
         public bool UsePassword { get; set; } = false;
         
         // Untuk advanced mode
@@ -19,11 +17,13 @@ namespace BluesZencore.Core
         public List<string>? excludePattern { get; set; } = new();
         public string? archiveNameTemplate { get; set; } = "ZencoreOutput_{date}_{time}";
         public int CompressionLevel { get; set; } = 5;
-
+        public bool GenerateChecksum { get; set; }
+        public string? ChecksumAlgorithm { get; set; } = "SHA256";
+        public Dictionary<string, string>? Metadata { get; set; }
         public bool GenerateChecksum { get; set; } = false;
-        public Dictionary<string, string>? CustomMetaData { get; set; } = null;
+        
         public bool AdvancedMode =>
-            EnableEncryption || GenerateChecksum || (CustomMetaData?.Any() ?? false);
+            EnableEncryption || GenerateChecksum || (Metadata?.Any() ?? false);
 
     }
 }
